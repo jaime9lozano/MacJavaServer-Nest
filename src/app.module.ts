@@ -4,6 +4,8 @@ import { DataBaseConfigModule } from './config/data-base-config/data-base-config
 import { ClientesModule } from './rest/clientes/clientes.module'
 import { CacheModule } from '@nestjs/cache-manager'
 import { CorsConfigModule } from './config/cors/cors.module'
+import { AuthModule } from './rest/auth/auth.module'
+import { UsersModule } from './rest/usuarios/users.module'
 
 @Module({
   imports: [
@@ -13,10 +15,12 @@ import { CorsConfigModule } from './config/cors/cors.module'
       ignoreEnvFile: false,
     }),
     //bbdd con postgrest
+    AuthModule,
     CorsConfigModule,
     DataBaseConfigModule,
     CacheModule.register(),
     ClientesModule,
+    UsersModule,
   ],
   providers: [],
 })
